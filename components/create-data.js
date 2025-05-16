@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
@@ -19,15 +19,15 @@ export default function CreateTask({ triggerRefresh }) {
 
   return (
     <>
-        <form onSubmit={createTask}>
+      <form onSubmit={createTask}>
         <input
-            type="text"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            placeholder="Enter task name"
+          type="text"
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
+          placeholder="Enter task name"
         />
         <button type="submit">Create Task</button>
-        </form>
+      </form>
     </>
   );
 }

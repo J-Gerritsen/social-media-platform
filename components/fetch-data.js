@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase-config";
+import DeleteTaskComponent from "./delete-data";
 
 export default function TasksComponent({ refreshTrigger }) {
   const [taskList, setTaskList] = useState([]);
@@ -27,7 +28,10 @@ export default function TasksComponent({ refreshTrigger }) {
         <h1>Task List</h1>
         <ul>
           {taskList.map((task) => (
-            <li key={task.id}>{task.name}</li>
+            <li key={task.id}>
+              {task.name}
+              <DeleteTaskComponent taskId={task.id} onDelete={fetchTasks} />
+            </li>
           ))}
         </ul>
       </div>
